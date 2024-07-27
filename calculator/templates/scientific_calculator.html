@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Scientific Calculator{% endblock %}
+
+{% block content %}
+    <h1>Scientific Calculator</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+</head>
+<body>
+    <form method="POST" action="/scientific_calculator">
+        <label for="num1">Number:</label>
+        <input type="text" name="num1" required>
+        <br>
+        <label for="operation">Operation:</label>
+        <select name="operation" required>
+            <option value="sqrt">Square Root</option>
+            <option value="log">Logarithm</option>
+            <option value="sin">Sine</option>
+            <option value="cos">Cosine</option>
+            <option value="tan">Tangent</option>
+        </select>
+        <br>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result">
+        {% if result %}
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+    </div>
+    {% endblock %}
+
+</body>
+</html>
